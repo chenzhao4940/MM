@@ -42,6 +42,7 @@ public class HomeRecyclerAdapter extends RecyclerView.Adapter<HomeRecyclerAdapte
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
+        holder.textDes.setTypeface(BaseApp.getInstance().getTypeface());
         holder.textDes.setText(mDatas.get(position).getDes());
         Glide.with(mContext)
                 .load(mDatas.get(position).getCoversUrl())

@@ -14,8 +14,6 @@ public class BaseApp extends Application {
     }
 
 
-    private BaseApp(){}
-
 
     @Override
     public void onCreate() {
