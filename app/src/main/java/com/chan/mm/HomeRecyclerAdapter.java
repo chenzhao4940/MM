@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
+import com.chan.mm.callback.RecyclerViewItemClickListener;
 
 import java.util.List;
 
@@ -26,6 +27,7 @@ import java.util.List;
 public class HomeRecyclerAdapter extends RecyclerView.Adapter<HomeRecyclerAdapter.ViewHolder> {
     private Context mContext;
     private List<HomeEntity> mDatas;
+    public RecyclerViewItemClickListener<HomeEntity> itemClickListener = null;
 
     public HomeRecyclerAdapter(Context mContext, List<HomeEntity> mDatas) {
         this.mContext = mContext;
@@ -36,14 +38,21 @@ public class HomeRecyclerAdapter extends RecyclerView.Adapter<HomeRecyclerAdapte
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
        // LayoutInflater inflater = LayoutInflater.from(mContext);
-        ViewHolder vHolder = new ViewHolder(inflater.inflate(R.layout.item_home_waterfall, parent, false));
+        View view = inflater.inflate(R.layout.item_home_waterfall, parent, false);
+        ViewHolder vHolder = new ViewHolder(view);
         return vHolder;
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.textDes.setTypeface(BaseApp.getInstance().getTypeface());
         holder.textDes.setText(mDatas.get(position).getDes());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                itemClickListener.onItemClick(holder.itemView,position,mDatas.get(position));
+            }
+        });
         Glide.with(mContext)
                 .load(mDatas.get(position).getCoversUrl())
                 .asBitmap()
@@ -75,6 +84,9 @@ public class HomeRecyclerAdapter extends RecyclerView.Adapter<HomeRecyclerAdapte
         Glide.with(mContext).load(mDatas.get(position).getCoversUrl()).into(holder.imgCover);
     }
 
+    public void setOnItemClickListener(RecyclerViewItemClickListener<HomeEntity> itemClickListener) {
+        this.itemClickListener = itemClickListener;
+    }
     @Override
     public int getItemCount() {
         return mDatas == null || mDatas.size() <= 0 ? 0 : mDatas.size();
@@ -83,11 +95,15 @@ public class HomeRecyclerAdapter extends RecyclerView.Adapter<HomeRecyclerAdapte
     class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView imgCover;
         private TextView textDes;
+        private View itemView;
 
         public ViewHolder(View itemView) {
             super(itemView);
+            this.itemView = itemView;
             imgCover = (ImageView) itemView.findViewById(R.id.img);
             textDes = (TextView) itemView.findViewById(R.id.tv_title);
         }
+
+
     }
 }

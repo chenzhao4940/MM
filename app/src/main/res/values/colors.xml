@@ -4,4 +4,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="color_black">#000000</color>
+    <color name="color_grap">#DDDDDD</color>
+    <!--灰白-->
+    <color name="color_grap_white">#F5F5F5</color>
+    <color name="color_deep_grap">#636363</color>
 </resources>
