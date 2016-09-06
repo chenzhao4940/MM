@@ -23,8 +23,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:textSize="13sp"
-            android:background="@android:color/white"
-            android:text="漂亮的妹妹" />
+            android:textSize="12sp"
+            android:background="@drawable/shape_corners"
+            android:text="漂亮的妹妹"
+            android:padding="3dp"/>
     </RelativeLayout>
 </android.support.v7.widget.CardView>
