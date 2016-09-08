@@ -3,6 +3,8 @@ package com.chan.mm;
 import android.app.Application;
 import android.graphics.Typeface;
 
+import cn.jpush.android.api.JPushInterface;
+
 /**
  * Created by chan on 2016/9/2.
  */
@@ -20,6 +22,13 @@ public class BaseApp extends Application {
         super.onCreate();
         mBaseAppInstance = this;
         initFonts();
+        initThirdParty();
+    }
+
+    private void initThirdParty() {
+        //设置的极光推送
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(this);
     }
 
     private void initFonts() {

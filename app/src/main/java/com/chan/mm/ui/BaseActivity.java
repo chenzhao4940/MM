@@ -16,11 +16,19 @@ public abstract class BaseActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(getContentView());
         mContext = this;
-        mApplicationContext = getApplicationContext();
+        mApplicationContext = this.getApplicationContext();
         getIntentData();
+        configApp();
         initViews();
         loadDatas();
         setListener();
+    }
+
+    /**
+     * 配置一些app信息
+     */
+    public void configApp() {
+
     }
 
     protected abstract int getContentView();
