@@ -18,7 +18,7 @@ import com.tencent.tauth.Tencent;
 
 import java.util.ArrayList;
 
-public class ItemInfoActivity extends BaseActivity implements View.OnClickListener {
+public class PhotoActivity extends BaseActivity implements View.OnClickListener {
     private Button mBtnTencent;
     private Button mBtnShareToqq;
     private Button mBtnShareToZone;
@@ -49,7 +49,6 @@ public class ItemInfoActivity extends BaseActivity implements View.OnClickListen
         mBtnShareToZone.setOnClickListener(this);
     }
 
-    @Override
     public void loadDatas() {
 
     }

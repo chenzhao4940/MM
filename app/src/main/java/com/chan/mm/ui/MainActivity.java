@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
-import android.widget.Toast;
 
 import com.chan.mm.HomeEntity;
 import com.chan.mm.HomeRecyclerAdapter;
@@ -30,7 +29,7 @@ public class MainActivity extends BaseActivity {
         mAdapter.setOnItemClickListener(new RecyclerViewItemClickListener<HomeEntity>() {
             @Override
             public void onItemClick(View itemView, int position, HomeEntity data) {
-                startActivity(new Intent(mContext,ItemInfoActivity.class));
+                startActivity(new Intent(mContext,PhotoActivity.class));
             }
         });
         mRecycler.addOnScrollListener(new RecyclerView.OnScrollListener() {

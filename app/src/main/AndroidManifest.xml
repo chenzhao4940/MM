@@ -45,7 +45,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.ItemInfoActivity"></activity>
+        <activity android:name=".ui.PhotoActivity"></activity>
 
         <!--QQ分享登录等-->
         <activity
@@ -171,5 +171,5 @@
         <!--   </>值来自开发者平台取得的AppKey-->
     </application>
     <!--  Required  . Enable it you can get statistics data with channel -->
-    
+
 </manifest>
